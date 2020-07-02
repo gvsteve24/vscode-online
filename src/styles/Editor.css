@@ -1,0 +1,67 @@
+.editor {
+    font-size: 14px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.tab {
+    display: inline-flex;   
+    border-right: .5px solid #1E1E1E;
+    background-color: #2D2D2D;
+}
+
+.tab .logo {
+    position: relative;
+    top: 7px;
+}
+
+.tab span {
+    color: #969696;
+    display: inline-block;
+    margin: 0 2px 0 6px;
+    width: 62px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.tab:hover {
+    cursor: pointer;
+}
+
+.active {  
+    background-color: #1E1E1E;
+}
+
+.active span, .active button {
+    color: #fff;
+}
+
+.tab:hover button, .active button {
+    visibility: visible;
+}
+
+.close-tab {
+    font-weight: 100;
+    visibility: hidden;
+    border: none;
+    color: #CCC;
+    background-color: transparent;
+    box-sizing: border-box;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.window {
+    font-size: 14px;
+    color: #989898;
+    width: calc(100vw - 200px);
+    height: calc(100vh - 275px);            /* terminal height: 210px;*/
+    background-color: #1E1E1E;
+    border: none;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    left: -0.5px;
+}
