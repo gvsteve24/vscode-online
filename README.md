@@ -1,2 +1,2 @@
 # vscode-online
-Visual Studio Online Version
+Visual Studio Code Online Version
