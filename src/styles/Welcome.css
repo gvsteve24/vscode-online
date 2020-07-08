@@ -1,0 +1,86 @@
+/* Welcome Page Styles
+
+section nav ul li .page h4 {
+  font-weight: 300;
+}
+
+section nav ul li .page h5 {
+  font-size: 24px;
+  color: #989898;
+  font-weight: 300;
+  margin-bottom: 40px;
+}
+
+section nav ul li .page .content {
+  height: 600px;
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: -40px;
+}
+
+.content-item {
+  width: 662px;
+  height: 200px;
+}
+
+.content-item.left {
+  height: 300px;
+}
+
+.content-item h6 {
+  font-size: 20px;
+  color: #c7c7c7; 
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+
+.content-item .link span {
+  color: #3794ff;
+}
+
+.content-item .link>span {
+  color: #989898;
+  margin: 10px 10px 10px 0;
+}
+
+.content-item ul {
+  font-size: 13px;
+  color: #3794ff;
+  font-weight: 100;
+}
+
+.content-item ul li p {
+  color: #989898;
+}
+
+.content-item ul li a{
+  color: #3794ff;
+}
+
+.content-item ul li a span{
+  color: #c7c7c7;
+}
+
+.left ul {
+  width: 662px;
+  height: 250px;
+  padding: 10px;
+}
+
+.left ul li {
+  width: 590px;
+  height: 65px;
+  margin-bottom: 8px;
+  background-color: #181819;
+  padding: 12px 10px;
+  box-sizing: border-box;
+}
+
+.left ul li:hover {
+  background-color: #2A2D2E;
+  cursor: pointer;
+}
+
+.page>span {
+  font-size: 14px;
+} */

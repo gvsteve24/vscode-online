@@ -1,0 +1,126 @@
+.explorer-body {
+    height: calc(100vh - 81px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.root {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ccc;
+    position: relative;
+}
+
+.root.append {
+flex-grow: 1;
+}
+
+.root~.branches {
+height: 0;
+display: none;
+}
+
+.root.append~.branches {
+height: auto;
+display: block;
+}
+
+.branches, .files {
+font-size: 13px;
+color: #989898;
+width: 100%;
+padding-left: 10px;
+}
+
+.root~.files {
+display: none;
+}
+
+.root.append~.files {
+height: auto;
+display: block;
+}
+
+.branches div, .root div{
+width: 100%;
+height: 18px;
+position: relative;
+}
+
+.branches>.chevron {
+color: #ccc;
+display: inline-block;
+box-sizing: border-box;
+margin: 0 3px;
+position: relative;
+top: 0.8px;;
+}
+
+.branches~.files {
+display: none;
+}
+
+.branches.append~.files {
+display: block;
+}
+
+.branches.append~.branches {
+height: auto;
+visibility: visible;
+}
+
+.root>.chevron {
+color: #ccc;
+display: inline-block;
+box-sizing: border-box;
+margin: 0 3px;
+position: relative;
+bottom: 3px;
+}
+
+.root .icn-file {
+color: #ccc;
+display: inline-block;
+box-sizing: border-box;
+margin: 0 3px;
+position: relative;
+bottom: 0px;
+}
+
+.chevron.down {
+    transform: rotate(90deg);
+}
+
+.root>span {
+display: inline-block;
+width: 90px;
+color: #ccc;
+padding: 0 3px; 
+overflow: hidden;
+white-space: nowrap;
+}
+
+.root:hover>span {
+width: 75px;
+text-overflow: ellipsis;
+}
+
+.root .icn-more {
+visibility: hidden;
+display: inline-flex;
+align-items: center;
+position: absolute;
+}
+
+.root:hover .icn-more {
+visibility: visible;
+}
+
+.root:hover .icn-more span:last-child {
+color: #FFF;
+}
+
+.root .icn-more span {
+margin: 0 2px;
+}

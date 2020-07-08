@@ -8,7 +8,7 @@ export class Title extends Component {
             <li className={ isActive ? "tab active" : "tab"}>
                 <FontAwesomeIcon icon={["fab", "vuejs"]} className="logo" /><span onClick={this.props.activatePage.bind(this, id)}>{title}</span>
                 <button onClick={this.props.closePage.bind(this, id)} className="close-tab">
-                    <FontAwesomeIcon icon="times" className="times" />
+                    <FontAwesomeIcon icon="times" className="times"/>
                 </button>
             </li>
         )

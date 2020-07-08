@@ -154,98 +154,34 @@ aside nav.file-explorer .explorer-title {
   margin: 8px 8px 5px 8px;
 }
 
-.explorer-body {
-  height: calc(100vh - 81px);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.root:hover .icn-more {
-  float: right;
-  visibility: visible;
-}
-
-.root:hover .icn-more span:last-child {
-  color: #FFF;
-}
-
 .root {
   font-size: 13px;
-  font-weight: 600;
   color: #ccc;
+  font-weight: 400;
   position: relative;
 }
 
-.root .chevron {
-  color: #ccc;
+.root>.chevron {
+  width: 7px;
   display: inline-block;
   box-sizing: border-box;
   margin: 0 3px;
-  position: relative;
-  bottom: 3px;
 }
 
-.root:hover {
-  flex-grow: 1;
-}
-
-.root:hover>.branches {
-  visibility: visible;
-  height: fit-content;
-}
-
-.root:hover> .chevron {
+.root>.chevron.down {
   transform: rotate(90deg);
 }
 
-.root:hover>span {
-  width: 80px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 .root>span {
-  color: #ccc;
-  padding: 0 3px; 
-  display: inline-block;
+  margin-left: 3px;
 }
 
-.root .icn-more {
-  visibility: hidden;
-  display: inline-flex;
-  align-items: center;
-  position: absolute;
-  right: 0;
+.context-box {
+  display: block;
 }
 
-.root .icn-more span {
-  margin: 0 2px;
-}
-
-.root>.branches {
-  z-index: 1;
-  visibility: hidden;
-  height: 0;
-  /* height: fit-content; */
-}
-
-.branches ul {
-  color: #989898;
-  padding-left: 10px;
-}
-
-.branches ul {
-  width: 100%;
-}
-
-.branches ul li {
-
-}
-
-.branches ul li a {
-
+.hidden {
+  display: none;
 }
 
 section {
@@ -287,94 +223,6 @@ section {
 .page textarea:focus {
   outline: none;
 }
-
-
-/* Welcome Page Styles
-
-section nav ul li .page h4 {
-  font-weight: 300;
-}
-
-section nav ul li .page h5 {
-  font-size: 24px;
-  color: #989898;
-  font-weight: 300;
-  margin-bottom: 40px;
-}
-
-section nav ul li .page .content {
-  height: 600px;
-  display: flex;
-  flex-flow: column wrap;
-  margin-bottom: -40px;
-}
-
-.content-item {
-  width: 662px;
-  height: 200px;
-}
-
-.content-item.left {
-  height: 300px;
-}
-
-.content-item h6 {
-  font-size: 20px;
-  color: #c7c7c7; 
-  font-weight: 200;
-  margin-bottom: 5px;
-}
-
-.content-item .link span {
-  color: #3794ff;
-}
-
-.content-item .link>span {
-  color: #989898;
-  margin: 10px 10px 10px 0;
-}
-
-.content-item ul {
-  font-size: 13px;
-  color: #3794ff;
-  font-weight: 100;
-}
-
-.content-item ul li p {
-  color: #989898;
-}
-
-.content-item ul li a{
-  color: #3794ff;
-}
-
-.content-item ul li a span{
-  color: #c7c7c7;
-}
-
-.left ul {
-  width: 662px;
-  height: 250px;
-  padding: 10px;
-}
-
-.left ul li {
-  width: 590px;
-  height: 65px;
-  margin-bottom: 8px;
-  background-color: #181819;
-  padding: 12px 10px;
-  box-sizing: border-box;
-}
-
-.left ul li:hover {
-  background-color: #2A2D2E;
-  cursor: pointer;
-}
-
-.page>span {
-  font-size: 14px;
-} */
 
 .monitor-nav {
   margin-top: -200px;

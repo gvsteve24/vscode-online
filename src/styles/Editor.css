@@ -4,6 +4,10 @@
     font-weight: normal;
 }
 
+.editor>textarea {
+    position: relative;
+}
+
 .tab {
     display: inline-flex;   
     border-right: .5px solid #1E1E1E;
