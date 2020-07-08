@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Features
+- Text Editing from the main area.
+- Visually arranged compartment area mirrored in the same way to Visual Studio Code by MSSoft
+- Open, Close editor tab which remembers the last active tab.
+
+Functions Available
+- Click : activate and reload the previous page unsaved.
+- Ctrl+Enter : Open additional tab for editing.
+
+Upcoming Features
+- File directory in Tree model
+  User can make new file in dummy folder structure.
+- Terminal Tab 
+  some features will be developed as original vscode expects to do.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
