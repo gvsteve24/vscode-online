@@ -246,13 +246,25 @@ class Root extends React.Component {
 }
 
 class Context extends Component {
-    render(){
+    returnOption(items){
+        let positionStyle = {
+            top: this.props.menu.position.y,
+            left: this.props.menu.position.x
+        }
+
         return (
-            <div className={ this.props.menu.visibility ? 'context-box' : 'hidden'}>
-                {this.props.menu.item && this.props.menu.item.map( (item, index) => {
-                    return <div key={index}>{item.label}</div>
-                })} 
-            </div>
+            <div className="context-box" style={positionStyle}>{ items && items.map((item, index) => {
+                return <div key={index} onClick={this.props.addSibling.bind(this, index)} className="context-item">{item.label}</div>
+            })}</div>
+        )
+    }
+
+    render(){
+        let items = this.props.menu.items;
+        return (
+            <React.Fragment>
+                {this.props.menu.visibility ? this.returnOption.bind(this, items)() : null}
+            </React.Fragment>
         )
     }
 }
@@ -262,38 +274,77 @@ class Folder extends Component {
         super(props);
         this.state = {
             folded: true,
+            children: this.props.children,
             menu: {
                 visibility: false,
-                item: [
-                    { label: 'New File' },
-                    { label: 'New Folder' }
-                ]
+                items: [
+                    {label: 'New File'}, {label: 'New Folder'}
+                ],
+                position: {
+                    x: 0,
+                    y: 0
+                }
             }
         }
 
         this.setFolded = this.setFolded.bind(this);
-        this.setContext = this.setContext.bind(this);
-        this.contextHandler = this.contextHandler.bind(this);
+        this.toggleVisibility = this.toggleVisibility.bind(this);
+        this.removeContext = this.removeContext.bind(this);
+        this.addSibling = this.addSibling.bind(this);
     }
 
     componentDidMount(){
-        document.addEventListener('contextmenu', this.contextHandler);
+        let self = this;
+        document.addEventListener('click', self.removeContext)
     }
 
-    componentWillUnmount(){
-        document.removeEventListener('contextmenu', false);
-    }
+    toggleVisibility(e){
+        if(!this.state.visibility){
+            let x = e.clientX;
+            let y = e.clientY;
+            this.setState(prevState => ({ 
+                ...prevState,
+                menu: {
+                    ...prevState.menu,
+                    visibility: true,
+                    position: {x, y}
+                }
+            }));
+        }
 
-    contextHandler(e){
         e.preventDefault();
-        this.setContext();
     }
 
-    setContext(){
-        let visibility = this.state.menu.visibility;
-        this.setState({menu: {
-            visibility: !visibility
-        }});
+    addSibling(index){
+        // target this.state.children and add new object.
+        let title = prompt('enter file name');
+
+        if(index === 0){
+            this.setState({ children: [...this.state.children, {
+                title,
+                type: 'file'
+            }]});
+        }else{
+            this.setState({ children: [...this.state.children, {
+                title,
+                type: 'folder',
+                children: []
+            }]});
+        }
+
+        this.setState(prevState => ({ 
+            ...prevState,
+            menu: {
+                ...prevState.menu,
+                visibility: true
+            }
+        }));
+    }
+
+    removeContext(){
+        let menu = {...this.state.menu};
+        menu.visibility = false;
+        this.setState({ menu });
     }
 
     setFolded(){
@@ -304,13 +355,13 @@ class Folder extends Component {
     render(){
         return (
             <React.Fragment>
-                <div className="root" style={normal} onClick={this.setFolded} onContextMenu={this.contextHandler}>
+                <div className="root" style={normal} onClick={this.setFolded} onContextMenu={this.toggleVisibility}>
                     {this.props.data.type === 'folder' ? <FontAwesomeIcon icon="chevron-right" className={this.state.folded ? "chevron" : "chevron down"}/> : <FontAwesomeIcon icon="code"/>}
                     <span>{this.props.data.title}</span>
-                    <Context menu={this.state.menu}/>
+                    <Context menu={this.state.menu} addSibling={this.addSibling}/>
                 </div>
                 <div className="root" style={this.state.folded ? collapse : open}>
-                    { this.props.children && this.props.children.map( (child, index) => {
+                    { this.state.children && this.state.children.map((child, index) => {
                         return (
                             <Folder key={index} data={child}>
                                 {child.children}

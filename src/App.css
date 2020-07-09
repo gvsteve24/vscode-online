@@ -158,7 +158,6 @@ aside nav.file-explorer .explorer-title {
   font-size: 13px;
   color: #ccc;
   font-weight: 400;
-  position: relative;
 }
 
 .root>.chevron {
@@ -177,7 +176,25 @@ aside nav.file-explorer .explorer-title {
 }
 
 .context-box {
-  display: block;
+  font-size: 14px;
+  color: #ccc;
+  width: 200px;
+  height: 100px;
+  background-color: #252526;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0 0 .5px 1px #111;
+}
+
+.context-item {
+  width: 100%;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+.context-item:hover {
+  cursor: pointer;
 }
 
 .hidden {
